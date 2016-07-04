@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Review, Workshop
 
-# Register your models here.
+all_models = [Review, Workshop]
+admin.site.register(all_models)
