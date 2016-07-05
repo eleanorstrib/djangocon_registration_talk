@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def all_reviews(request):
+	return render(request, 'reviews/all_reviews.html', {})
