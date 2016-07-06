@@ -6,7 +6,9 @@ This is the website
 
 {% for review in reviews %}
 	{{ review.title }}
-	{{ review.stars_overall}}
+	{{ review.stars_overall }}
 {% endfor %}
+
+<a href="{% url 'write_review' %}">write review</a>
 
 {% endblock %}
