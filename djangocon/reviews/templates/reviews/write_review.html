@@ -2,9 +2,8 @@
 
 {% block content %}
 
-<form action="" id="write-review" method="POST">
+<form action="" id="write-review" method="POST">{% csrf_token %}
 		<table>
-			{% csrf_token %}
 			<p>
 				{{ form.as_table }}
 			</p>

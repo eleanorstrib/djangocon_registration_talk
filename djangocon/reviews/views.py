@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from .models import Review
+from django.shortcuts import render, redirect
 from django.utils import timezone
+from .models import Review
+from .forms import ReviewForm
+
 
 def all_reviews(request):
 	reviews = Review.objects.filter(review_date__lte=timezone.now()).order_by('review_date')
@@ -8,4 +10,14 @@ def all_reviews(request):
 
 
 def write_review(request):
-	return render(request, 'reviews/write_review.html', {})
+	if request.method == 'POST':
+		form = ReviewForm(request.POST)
+		if form.is_valid:
+			review = form.save(commit=False)
+			review.author = request.user
+			review.review_date = timezone.now()
+			review.save()
+			return redirect('write_review')
+	else:
+		form = ReviewForm()
+	return render(request, 'reviews/write_review.html', {'form': form})
