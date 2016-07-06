@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from .models import Review
+from django.utils import timezone
 
 def all_reviews(request):
-	return render(request, 'reviews/all_reviews.html', {})
+	reviews = Review.objects.filter(review_date__lte=timezone.now()).order_by('review_date')
+	return render(request, 'reviews/all_reviews.html', {'reviews': reviews})

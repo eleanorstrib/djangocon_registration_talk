@@ -4,4 +4,9 @@
 
 This is the website
 
+{% for review in reviews %}
+	{{ review.title }}
+	{{ review.stars_overall}}
+{% endfor %}
+
 {% endblock %}
