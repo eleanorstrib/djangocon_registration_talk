@@ -42,6 +42,16 @@ INSTALLED_APPS = [
     'reviews',
 ]
 
+
+#registration
+
+REGISTRATION_OPEN = True # Prevent new registrations on the site (default is True)
+ACCOUNT_ACTIVATION_DAYS = 5 # Number of days the email confirmation link will be valid
+REGISTRATION_AUTO_LOGIN = True # If newly confirmed users should be automatically logged in
+LOGIN_REDIRECT_URL = '/' # Where to send users if they visit the site then log in
+LOGIN_URL = 'accounts/login/' # Where the login template will live
+
+
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
