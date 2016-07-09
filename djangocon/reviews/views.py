@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Review
-from .forms import ReviewForm
+from .forms import ReviewForm, UserForm
 
 
 def all_reviews(request):
@@ -21,3 +21,25 @@ def write_review(request):
 	else:
 		form = ReviewForm()
 	return render(request, 'reviews/write_review.html', {'form': form})
+
+
+def register(request):
+	context = RequestContext(request)
+
+	registered = False
+
+	if request.method == 'POST':
+		user_form = UserForm(data=request.POST)
+
+		if user_form.is_valid:
+			user = user_form.save()
+			user.save()
+
+			registered = True
+
+	else:
+		user_form = UserForm()
+
+
+	return render_to_response(
+            'registration/registration_form.html', {'user_form': user_form})
