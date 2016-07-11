@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Review
 from .forms import ReviewForm, UserForm
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect, HttpResponse
 
 
 def all_reviews(request):
