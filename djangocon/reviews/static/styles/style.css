@@ -1,0 +1,22 @@
+
+
+.navbar-default {
+	border-radius: 0px;
+}
+
+a.navbar-brand {
+	font-family: 'Love Ya Like A Sister', serif;
+	color: #B96A9A;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+	color: #D889B8;
+}
+
+a:hover {
+	color: #9CC089;
+}

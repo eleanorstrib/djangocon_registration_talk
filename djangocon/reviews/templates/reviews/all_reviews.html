@@ -2,13 +2,20 @@
 
 {% block content %}
 
-This is the website
+<p><h3>Welcome to Fairy Tale reviews!</h3>
+<h4>Browse reviews here or sign up/sign in to write your own.</h4></p>
 
-{% for review in reviews %}
-	{{ review.title }}
-	{{ review.stars_overall }}
-{% endfor %}
+<p>
+
+		{% for review in reviews %}
+		<div class="col-md-2">
+			<span class="glyphicon glyphicon-star"></span>
+			{{ review.stars_overall }}
+			{{ review.title }}
+		</div>
+		{% endfor %}
 
 <a href="{% url 'write_review' %}">write review</a>
+<p>
 
 {% endblock %}

@@ -45,3 +45,6 @@ def register(request):
 
 	return render_to_response(
             'registration/registration_form.html', {'user_form': user_form})
+
+
+	

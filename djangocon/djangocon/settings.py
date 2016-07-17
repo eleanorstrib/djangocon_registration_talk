@@ -52,6 +52,8 @@ REGISTRATION_AUTO_LOGIN = True # If newly confirmed users should be automaticall
 LOGIN_REDIRECT_URL = '/' # Where to send users if they visit the site then log in
 LOGIN_URL = 'accounts/login/' # Where the login template will live
 
+# print auth code to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,3 +136,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+
+
+
+
+
