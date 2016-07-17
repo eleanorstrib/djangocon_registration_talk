@@ -15,11 +15,29 @@ body {
 }
 
 a {
-	color: #9CC089;
+	color: #1F7278;
 }
 
 a:hover {
+	color: white;
+	background-color: #1F7278;
+	text-decoration: none;
+}
+
+.btn {
 	color: #1F7278;
+	font-weight: bold;
+	background-color: white;
+	border-radius: 0px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #1F7278
+}
+
+.btn:hover {
+	color: white;
+	background-color: #1F7278;
+	border-radius: 0px;
 }
 
 .title {

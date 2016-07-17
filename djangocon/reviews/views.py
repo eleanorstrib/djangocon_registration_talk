@@ -25,26 +25,4 @@ def write_review(request):
 	return render(request, 'reviews/write_review.html', {'form': form})
 
 
-def register(request):
-	context = RequestContext(request)
-
-	registered = False
-
-	if request.method == 'POST':
-		user_form = UserForm(data=request.POST)
-
-		if user_form.is_valid:
-			user = user_form.save()
-			user.save()
-
-			registered = True
-
-	else:
-		user_form = UserForm()
-
-
-	return render_to_response(
-            'registration/registration_form.html', {'user_form': user_form})
-
-
 	

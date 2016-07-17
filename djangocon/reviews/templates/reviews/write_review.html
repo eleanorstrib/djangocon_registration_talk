@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div align="center">
 <form action="" id="write-review" method="POST">{% csrf_token %}
 		<table>
 			<tbody>
@@ -11,5 +11,6 @@
 			<p>&nbsp</p>
 			<p><button type="submit" class="btn btn-custom">submit review</button></p>
 </form>
+</div>
 
 {% endblock %}
