@@ -13,7 +13,7 @@ class Review(models.Model):
 		('three_pigs', 'The Three Little Pigs'),
 		('twelve_princesses', 'The 12 Dancing Princesses')
 		)
-	title = models.CharField(max_length=100, choices=TITLE_CHOICES)
+	story = models.CharField(max_length=100, choices=TITLE_CHOICES)
 	text = models.TextField()
 	stars_overall = models.IntegerField()
 	stars_story = models.IntegerField()
@@ -26,4 +26,4 @@ class Review(models.Model):
 		self.save()
 
 	def __str__(self):
-		return self.title
+		return self.story
