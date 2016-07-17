@@ -37,9 +37,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          
-          <li><a href="{% url 'write_review' %}">write a review</a></a></li>
-         
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'write_review' %}">Write a review</a></li>
+            <li><a href="{% url 'auth_logout' %}">Sign out</a>
+          {% else %}
+            <li><a href="{% url 'auth_login' %}">Sign in</a></li>
+            <li><a href="{% url 'registration_register' %}">sign up</a></li>
+          {% endif %}
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
