@@ -5,17 +5,18 @@
 <p><h3>Welcome to Fairy Tale reviews!</h3>
 <h4>Browse reviews here or sign up/sign in to write your own.</h4></p>
 
+<div class="posted-review" align="center">
 <p>
-
-		{% for review in reviews %}
+		{% for review in reviews|dictsort:"story" %}
 		<div class="col-md-2">
-			<span class="glyphicon glyphicon-star"></span>
-			{{ review.stars_overall }}
-			{{ review.get_story_display }}
+			<span class="stars">{{ review.stars_overall }}
+			<span class="glyphicon glyphicon-star"></span></span>
+			<br />
+			<span class="title">{{ review.get_story_display }}</span>
 		</div>
 		{% endfor %}
 
-<a href="{% url 'write_review' %}">write review</a>
 <p>
+</div>
 
 {% endblock %}

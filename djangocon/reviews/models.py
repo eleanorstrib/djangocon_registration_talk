@@ -10,8 +10,8 @@ class Review(models.Model):
 		('hansel_gretel', 'Hansel & Gretel'),
 		('rapunzel', 'Rapunzel'),
 		('snow_white', 'Snow White and the Seven Dwarfs'),
-		('three_pigs', 'The Three Little Pigs'),
-		('twelve_princesses', 'The 12 Dancing Princesses')
+		('three_pigs', 'Three Little Pigs'),
+		('twelve_princesses', 'Twelve Dancing Princesses')
 		)
 	story = models.CharField(max_length=100, choices=TITLE_CHOICES)
 	text = models.TextField()

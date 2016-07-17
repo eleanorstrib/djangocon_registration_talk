@@ -1,12 +1,13 @@
 
 
-.navbar-default {
+.navbar-custom  {
 	border-radius: 0px;
+	background-color: white;
+	font-family: 'Love Ya Like A Sister', serif;
 }
 
-a.navbar-brand {
-	font-family: 'Love Ya Like A Sister', serif;
-	color: #B96A9A;
+.navbar-brand {
+	color: #B96A9A !important;
 }
 
 body {
@@ -18,5 +19,24 @@ a {
 }
 
 a:hover {
-	color: #D889B8;
+	color: #1F7278;
+}
+
+.title {
+	font-family: 'Love Ya Like A Sister', serif;
+	font-size: 1.3em;
+}
+
+.stars {
+	color: #B8AA54;
+	font-size: 2em;
+}
+
+.posted-review .col-md-2 {
+	padding-top: 15px;
+	padding-bottom: 25px;
+}
+
+th {
+	padding: 10px;
 }
