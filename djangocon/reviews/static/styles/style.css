@@ -8,6 +8,7 @@
 
 .navbar-brand {
 	color: #B96A9A !important;
+	font-size: 1.7em;
 }
 
 body {
@@ -39,6 +40,22 @@ a:hover {
 	background-color: #1F7278;
 	border-radius: 0px;
 }
+
+/*input {
+	color: #1F7278;
+	font-weight: bold;
+	background-color: white;
+	border-radius: 0px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #1F7278
+}
+
+input:hover {
+	color: white;
+	background-color: #1F7278;
+	border-radius: 0px;
+}*/
 
 .title {
 	font-family: 'Love Ya Like A Sister', serif;

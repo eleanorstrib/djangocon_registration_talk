@@ -2,14 +2,18 @@
 {% load i18n %}
 
 {% block content %}
-THIS IS THE LOGIN FORM
+
+<div class="container" align="center">
+
+<p><h3>Already have an account on Fairy Tale Reviews?  Sign in here!<br /><br /></h3></p>
 <form method="post" action=".">
   {% csrf_token %} 
-  {{ form.as_p }}
+  {{ form.as_table }}
 
-  <input type="submit" value="{% trans 'Log in' %}" />
+  <input type="submit" value="{% trans 'Sign in' %}" />
   <input type="hidden" name="next" value="{{ next }}" />
 </form>
+</div>
 
 <p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>
 <p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>

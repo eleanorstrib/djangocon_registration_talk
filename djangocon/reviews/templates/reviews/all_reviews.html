@@ -3,7 +3,7 @@
 {% block content %}
 
 <p><h3>Welcome to Fairy Tale Reviews!</h3>
-<h4>Browse reviews here or <a href="">sign up/sign in</a> to write your own.</h4><br /></p>
+<h4>Browse reviews here or <a href="{% url 'registration_register' %}">sign up</a> or <a href="{% url 'auth_login' %}">sign in</a> to write your own.</h4><br /></p>
 
 <div class="posted-review" align="center">
 <p>
