@@ -47,14 +47,14 @@ Now, let's get to the nitty gritty.
 ###**Fitting django-registration-redux in the django framework**
 If you've already cloned the repo, you have some project files, but if not, this will walk you through what to create.
 
-Start by creating a project and an app.  If you need help with this, I highly recommend the Django Girls tutorial. XXXX
+Start by creating a project and an app.  If you need help with this, I highly recommend the Django Girls tutorial. 
 
 Then if you go into your top-level project folder, you should see: 
 * manage.py file
 * Database 
 * App folder (`reviews` in this example)
 * Project folder (`djangocon` in this example)
-
+![django framework illustration](/django_framework_overview.png?raw=true)
 
 First, an overview of what we'll need to do here to add user registration.
 
