@@ -1,5 +1,6 @@
 This repo is an accompaniment to a presentation at DjangoCon USA 2016, called "Sign Me Up: Choosing & using a registration package for your Django project".   It was given in Philadelphia, PA on July 18, 2016.
 
+You can view the [slide deck](https://drive.google.com/a/eleanorstrib.com/file/d/0B1A8in1PFh3iS1JuVld6UmEtMkU/view?usp=sharing) alone, or along with the description below.
 
 ###**Intended audience**
 This talk was designed with the novice Django user in mind (some basic familiarity, has completed a tutorial or done a small project) but it could be useful for anyone who has not set up user registration for a site before.
