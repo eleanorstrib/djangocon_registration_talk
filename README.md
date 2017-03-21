@@ -18,7 +18,7 @@ This repo uses the following languages, frameworks & libraries:
 * Google Fonts
 I use a Mac so all of the directions are written from that perspective (sorry, Windows users!).
 
-###Getting started with this repo
+### Getting started with this repo
 
 While this talk was inspired by stuggles I had with a side project of mine called [valeez](http://www.valeez.com):baggage_claim:, the example is a very simple Django app called _Fairy Tale Reviews_:european_castle: (inspired by my four year old) where people can leave a review of one of six stories.  _Fairy Tale Reviews_ has a very simple data model, a single form, and some minimal styling; after all, we're here to focus on registration!
 
