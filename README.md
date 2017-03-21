@@ -31,7 +31,7 @@ Registration is a common component of most web applications, so knowing how to i
 * Some ‘gotchas’ that aren’t clear in or absent from documentation
 
 
-###Choosing a registration package
+### Choosing a registration package
 
 This repo and tutorial use django-registration-redux, but there are many other options out there! 
 
@@ -78,7 +78,7 @@ Inside the `templates` folder, you should have:
 
 *_`registration` folder_: This is where you will put all of the templates you'll need for the registration flow, for registering, logging in and out, resetting a password.  More on those in a minute.
 
-###Files that will be modified
+### Files that will be modified
 In addition to the files and folders listed above, we will need to make changes to two files in the project folder:
 
 * _settings.py_: Add the registration app and some settings to control its behavior, from the login page we show to how we deliver account verification messages.
