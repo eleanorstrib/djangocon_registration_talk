@@ -2,13 +2,14 @@ This repo is an accompaniment to a presentation at DjangoCon USA 2016, called "S
 
 You can view the [slide deck in Keynote](https://drive.google.com/file/d/0B1A8in1PFh3idEV3OUVfWk1lTDA/view?usp=sharing) or [video](https://youtu.be/WHEjVBTBXcA) alone, or along with the description below.
 
-###Intended audience
+## Intended audience
+
 This talk was designed with the novice Django user in mind (some basic familiarity, has completed a tutorial or done a small project) but it could be useful for anyone who has not set up user registration for a site before.
 
 If you have any questions, or see any errors in this repo, please open an issue or email me.
 
 
-###Tech
+### Tech
 This repo uses the following languages, frameworks & libraries:
 * Python 3
 * Django 1.9
@@ -22,7 +23,7 @@ I use a Mac so all of the directions are written from that perspective (sorry, W
 While this talk was inspired by stuggles I had with a side project of mine called [valeez](http://www.valeez.com):baggage_claim:, the example is a very simple Django app called _Fairy Tale Reviews_:european_castle: (inspired by my four year old) where people can leave a review of one of six stories.  _Fairy Tale Reviews_ has a very simple data model, a single form, and some minimal styling; after all, we're here to focus on registration!
 
 
-###Overview
+## Overview
 
 Registration is a common component of most web applications, so knowing how to implement it is a useful skill.  After working through the process for a personal project in 2015 (available at valeez.com), I submitted this talk to DjangoCon in order to share:
 * Criteria and resources for choosing a registration package
@@ -48,7 +49,7 @@ I love the site http://djangopackages.com to evaluate my options, even if it doe
 
 Now, let's get to the nitty gritty.
 
-###Fitting django-registration-redux in the django framework
+### Fitting django-registration-redux in the django framework
 If you've already cloned the repo, you have some project files, but if not, this will walk you through what to create.
 
 Start by creating a project and an app.  If you need help with this, I highly recommend the Django Girls tutorial. 
@@ -62,7 +63,7 @@ Then if you go into your top-level project folder, you should see:
 
 First, an overview of what we'll need to do here to add user registration.
 
-###Things to add
+### Things to add
 Here are the files and folders that we need to add in the app folder (again, that's `reviews` in this example).
 
 * _forms.py file_: We'll use this to create a user registration form, based on Django's built in User model, which you can learn about here: 
@@ -77,7 +78,7 @@ Inside the `templates` folder, you should have:
 
 *_`registration` folder_: This is where you will put all of the templates you'll need for the registration flow, for registering, logging in and out, resetting a password.  More on those in a minute.
 
-####Files that will be modified
+###Files that will be modified
 In addition to the files and folders listed above, we will need to make changes to two files in the project folder:
 
 * _settings.py_: Add the registration app and some settings to control its behavior, from the login page we show to how we deliver account verification messages.
@@ -88,7 +89,7 @@ That's it!
 
 Now that we have an overview of what's going on, let's get coding.
 
-##Making it work
+###Making it work
 **Step 0: Install in venv & update requirements**
 
 I'm going to use `pip` a bunch here.  In your virtual environment, in your root, type `pip install django-registration-redux'.  And it's installed! Magical. :tada:
@@ -131,7 +132,7 @@ In the `urlpatterns` list, add this line, to tell django to use the registration
 That's it -- _almost_!  Here are a couple of other things you might want to do that tripped me up :scream: -- don't let it happen to you. 
 
 
-##Pitfalls
+### Pitfalls
 These two issues are documented, but I had a hard time tracking down these problems.
 
 **Issue #1: Custom registration templates did not show up!**
