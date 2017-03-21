@@ -89,7 +89,7 @@ That's it!
 
 Now that we have an overview of what's going on, let's get coding.
 
-###Making it work
+### Making it work
 **Step 0: Install in venv & update requirements**
 
 I'm going to use `pip` a bunch here.  In your virtual environment, in your root, type `pip install django-registration-redux'.  And it's installed! Magical. :tada:
@@ -139,10 +139,11 @@ These two issues are documented, but I had a hard time tracking down these probl
 
 This was one of the more frustrating problems I had -- I made beautiful customizations on my registration templates and none of them showed up.  
 
-To fix this, you need to be sure that the 'registration' app shows up in the `settings.py` file in the `INSTALLED_APPS` list before `'django.contrib.admin', and your app before that.  
+To fix this, you need to be sure that the 'registration' app shows up in the `settings.py` file in the `INSTALLED_APPS` list before `django.contrib.admin`, and your app before that.  
 
 
 **Issue #2: Errors when trying to test the email on my local machine**
+
 Before you've set up an email server, Django knows it must send an email, but doesn't know where to send it.  
 
 Before you have all of that set up, you can test that the email verification works by printing it into the console.  This requires a single line of code in your `settings.py`: `EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'`.  Easy, right??
