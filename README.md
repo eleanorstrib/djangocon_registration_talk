@@ -2,13 +2,13 @@ This repo is an accompaniment to a presentation at DjangoCon USA 2016, called "S
 
 You can view the [slide deck in Keynote](https://drive.google.com/file/d/0B1A8in1PFh3idEV3OUVfWk1lTDA/view?usp=sharing) or [video](https://youtu.be/WHEjVBTBXcA) alone, or along with the description below.
 
-###**Intended audience**
+###Intended audience
 This talk was designed with the novice Django user in mind (some basic familiarity, has completed a tutorial or done a small project) but it could be useful for anyone who has not set up user registration for a site before.
 
 If you have any questions, or see any errors in this repo, please open an issue or email me.
 
 
-###**Tech**
+###Tech
 This repo uses the following languages, frameworks & libraries:
 * Python 3
 * Django 1.9
@@ -17,21 +17,25 @@ This repo uses the following languages, frameworks & libraries:
 * Google Fonts
 I use a Mac so all of the directions are written from that perspective (sorry, Windows users!).
 
-**Getting started with this repo**
+###Getting started with this repo
+
 While this talk was inspired by stuggles I had with a side project of mine called [valeez](http://www.valeez.com):baggage_claim:, the example is a very simple Django app called _Fairy Tale Reviews_:european_castle: (inspired by my four year old) where people can leave a review of one of six stories.  _Fairy Tale Reviews_ has a very simple data model, a single form, and some minimal styling; after all, we're here to focus on registration!
 
 
-###**Overview**
+###Overview
+
 Registration is a common component of most web applications, so knowing how to implement it is a useful skill.  After working through the process for a personal project in 2015 (available at valeez.com), I submitted this talk to DjangoCon in order to share:
 * Criteria and resources for choosing a registration package
 * How the pieces of a registration package fit into the Django framework
 * Some ‘gotchas’ that aren’t clear in or absent from documentation
 
 
-###**Choosing a registration package**
+###Choosing a registration package
+
 This repo and tutorial use django-registration-redux, but there are many other options out there! 
 
 Some key considerations are:
+
 * _Matching product requirements_: To pick the right tools, you need to know what your end goals are.  Do your requirements call for social media login? OAuth? Email validation?  Sounds obvious, but this is an often overlooked step.  Addressing those now and understanding the benefits and limitations of your choice will save you headaches down the road, I promise!
 
 * _Compatibility_: Keep in mind you may need to upgrade your version of Django (for example) to use a package, or certain packages may not be compatible with newer versions (probably not a great sign...).  I advocate using the latest stable release of software for an application that will be available to real users.  
@@ -44,7 +48,7 @@ I love the site http://djangopackages.com to evaluate my options, even if it doe
 
 Now, let's get to the nitty gritty.
 
-###**Fitting django-registration-redux in the django framework**
+###Fitting django-registration-redux in the django framework
 If you've already cloned the repo, you have some project files, but if not, this will walk you through what to create.
 
 Start by creating a project and an app.  If you need help with this, I highly recommend the Django Girls tutorial. 
@@ -58,7 +62,7 @@ Then if you go into your top-level project folder, you should see:
 
 First, an overview of what we'll need to do here to add user registration.
 
-####Things to add
+###Things to add
 Here are the files and folders that we need to add in the app folder (again, that's `reviews` in this example).
 
 * _forms.py file_: We'll use this to create a user registration form, based on Django's built in User model, which you can learn about here: 
@@ -71,7 +75,7 @@ Inside the `templates` folder, you should have:
 
 * _Application templates folder (`reviews` in this example)_: This folder holds all of the application templates that are not part of the registration flow.  Again, if you have an app that displays some views in the browser, you've already got this.
 
-*_`registration' folder_: This is where you will put all of the templates you'll need for the registration flow, for registering, logging in and out, resetting a password.  More on those in a minute.
+*_`registration` folder_: This is where you will put all of the templates you'll need for the registration flow, for registering, logging in and out, resetting a password.  More on those in a minute.
 
 ####Files that will be modified
 In addition to the files and folders listed above, we will need to make changes to two files in the project folder:
@@ -84,13 +88,15 @@ That's it!
 
 Now that we have an overview of what's going on, let's get coding.
 
-##Making it work##
+##Making it work
 **Step 0: Install in venv & update requirements**
+
 I'm going to use `pip` a bunch here.  In your virtual environment, in your root, type `pip install django-registration-redux'.  And it's installed! Magical. :tada:
 
 Next, you want to update your requirements.txt file by typing `pip freeze > requirements.txt'.  If you don't already have a requirements file, it's a good idea to create one in case you or someone else wants to clone and run your project on another machine.
 
 **Step 1: Create a form for the User in forms.py**
+
 You need to make a form for the user to add their data.  Fortunately, we can leverage the [Django User model](https://docs.djangoproject.com/en/1.9/ref/contrib/auth/#django.contrib.auth.models.User) to accomplish this.
 
 The only two fields that are _required_ are username and password, but if you want to have a step where the user validates their account with an email link, you should have email in there as well.  First and last name are built in, and you can extend the User model to add more fields, although that's beyond the scope of this talk.
@@ -108,15 +114,18 @@ class UserForm(forms.ModelForm):
 For the fields variable, add the built in attributes of the User model that you want to include, per the documentation.
 
 **Step 2: Install the app in settings.py, migrate**
+
 Head over to your `settings.py` file and add `'registration',` to the list in the `INSTALLED_APPS` variable.
 
 At this point, you should make sure that you have `'django.contrib.auth',` and `'django.contrib.sites',`
 in that list as well.  In the slides and the documentation for this package, there are other variables you can set that are really important for user experience, like how long the authorization link is valid for, if they are automatically signed in when they enroll, etc.  You could definitely set `LOGIN_URL = 'accounts/login/'` and the `LOGIN_REDIRECT_URL` to the path that you want.
 
 **Step 3: Get the registration templates**
+
 You can write all of these yourself, but why do that when a nice person has already done it for us!  Visit [this repo](https://github.com/macdhuibh/django-registration-templates) where you can download the whole set!  Add this to the `registration` folder in the `templates` folder.
 
 **Step 4: Add the url pattern to the urls.py that's NOT in your app**
+
 In the `urlpatterns` list, add this line, to tell django to use the registration urls: `url(r'^accounts/', include('registration.backends.default.urls')),`.  This instructs Django to use the 'standard' registration urls, so you don't need to add one for each template individually, which is a big headache.
 
 That's it -- _almost_!  Here are a couple of other things you might want to do that tripped me up :scream: -- don't let it happen to you. 
@@ -126,6 +135,7 @@ That's it -- _almost_!  Here are a couple of other things you might want to do t
 These two issues are documented, but I had a hard time tracking down these problems.
 
 **Issue #1: Custom registration templates did not show up!**
+
 This was one of the more frustrating problems I had -- I made beautiful customizations on my registration templates and none of them showed up.  
 
 To fix this, you need to be sure that the 'registration' app shows up in the `settings.py` file in the `INSTALLED_APPS` list before `'django.contrib.admin', and your app before that.  
